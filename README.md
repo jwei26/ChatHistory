@@ -21,6 +21,7 @@ This project is an agent designed to store chat information from Telegram group 
     ```
 
 2. **Set up your PostgreSQL database**
+    - Set up your PostgreSQL database
     - Create the `central.groups` table manually:
         ```sql
         CREATE TABLE central.groups (
@@ -47,12 +48,10 @@ This project is an agent designed to store chat information from Telegram group 
     ```bash
     curl -F "url=https://ngrokURL/webhook" https://api.telegram.org/bot<BotToken>/setWebhook
     ```
+    
+6. **Running the Application**
+    - Start the Spring Boot application
 
-## Running the Application
-- Start the Spring Boot application
-    ```bash
-    mvn spring-boot:run
-    ```
 
 ## Using the Application
 Once the application is running and the webhook is set, any messages sent to your Telegram bot will be captured and stored dynamically into the database. New schemas will be created automatically when you add the bot to new groups.
