@@ -1,5 +1,5 @@
 ## Introduction
-This project is an agent designed to store chat information from Telegram group channels. It captures user accounts, chat history, and message URLs. When a Telegram bot webhook receives messages and user data from Telegram groups, the agent dynamically creates schemas and stores the information in a PostgreSQL database.
+This project is an agent designed to store chat information from Telegram group channels. It captures user accounts, chat history, and message URLs. When a Telegram bot webhook receives messages from Telegram groups, the agent dynamically creates schemas and stores the messages and user data in a PostgreSQL database.
 
 ## Features
 - **Dynamic schema creation** in PostgreSQL based on Telegram group or channel data.
