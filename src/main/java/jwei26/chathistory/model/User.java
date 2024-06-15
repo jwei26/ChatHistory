@@ -4,7 +4,7 @@ package jwei26.chathistory.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users", schema = "public") // 根据实际schema名称调整
+@Table(name = "users", schema = "public")
 public class User {
     @Id
     private Long userId;

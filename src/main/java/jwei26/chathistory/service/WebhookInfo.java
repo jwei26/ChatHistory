@@ -13,7 +13,6 @@ public class WebhookInfo {
     @JsonProperty("last_error_message")
     private String lastErrorMessage;
 
-    // Getter 和 Setter 方法
     public String getUrl() {
         return url;
     }
@@ -54,7 +53,6 @@ public class WebhookInfo {
         this.lastErrorMessage = lastErrorMessage;
     }
 
-    // toString 方法便于调试
     @Override
     public String toString() {
         return "WebhookInfo{" +

@@ -16,7 +16,6 @@ public class TelegramHealthService {
         String url = "https://api.telegram.org/bot" + botToken + "/getWebhookInfo";
         try {
             WebhookInfo response = restTemplate.getForObject(url, WebhookInfo.class);
-            // 检查是否有错误和Webhook是否已正确设置
             return response != null;
         } catch (Exception e) {
             return false;
