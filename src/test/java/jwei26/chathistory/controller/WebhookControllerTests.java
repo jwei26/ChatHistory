@@ -1,6 +1,6 @@
 package jwei26.chathistory.controller;
 
-import jwei26.chathistory.service.MessageService;
+import jwei26.chathistory.service.WebhookMessageService;
 import jwei26.chathistory.service.SchemaService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,7 +30,7 @@ public class WebhookControllerTests {
     private SchemaService schemaService;
 
     @MockBean
-    private MessageService messageService;
+    private WebhookMessageService messageService;
 
     @Autowired
     private WebApplicationContext webApplicationContext;

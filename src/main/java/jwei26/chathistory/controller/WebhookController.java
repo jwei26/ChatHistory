@@ -1,7 +1,7 @@
 package jwei26.chathistory.controller;
 
 import jwei26.chathistory.service.SchemaService;
-import jwei26.chathistory.service.MessageService;
+import jwei26.chathistory.service.WebhookMessageService;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class WebhookController {
     private SchemaService schemaService;
 
     @Autowired
-    private MessageService messageService;
+    private WebhookMessageService messageService;
 
     @PostMapping("/webhook")
     public ResponseEntity<String> receiveMessage(@RequestBody String payload) {
@@ -30,6 +30,11 @@ public class WebhookController {
         } catch (JSONException e) {
             return ResponseEntity.badRequest().body("Invalid data");
         }
+    }
+    @PostMapping("/test")
+    public ResponseEntity<String> receiveMessages(@RequestBody String messageData) {
+        System.out.println(messageData);
+        return ResponseEntity.ok("Message Received");
     }
 
     private void processMessage(JSONObject json) {

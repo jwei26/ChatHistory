@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -35,12 +36,21 @@ public class SchemaService {
         return !schemas.isEmpty();
     }
 
+    public void updateGroupLastUpdate(long groupId, Timestamp lastUpdate) {
+
+        String sql = "UPDATE central.groups SET last_update = ? WHERE group_id = ?";
+
+        jdbcTemplate.update(sql, lastUpdate, groupId);
+
+    }
+
     public void insertGroupInfo(long groupId, String groupName, String schemaName) {
         if (!schemaExists(schemaName)) {
             createSchema(schemaName);
         }
         String sql = "INSERT INTO central.groups (group_id, group_name, data_schema) VALUES (?, ?, ?) ON CONFLICT (group_id) DO NOTHING";
         jdbcTemplate.update(sql, groupId, groupName, schemaName);
+        updateGroupLastUpdate(groupId, new Timestamp(System.currentTimeMillis()));
     }
 }
 

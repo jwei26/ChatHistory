@@ -19,7 +19,7 @@ public class MessageServiceTests {
     private JdbcTemplate jdbcTemplate;
 
     @InjectMocks
-    private MessageService messageService;
+    private WebhookMessageService messageService;
 
     @Test
     public void testSaveMessage() {
